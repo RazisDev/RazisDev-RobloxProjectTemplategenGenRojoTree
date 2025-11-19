@@ -1,0 +1,80 @@
+{
+  "name": "genrojotree",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$className": "Folder",
+        "Services": {
+          "$className": "Folder",
+          "ExampleService": {
+            "$className": "Folder",
+            "ExampleServiceClient": {
+              "$path": "src/services/ExampleService/Client.luau"
+            },
+            "ExampleServiceUtils": {
+              "$path": "src/services/ExampleService/Utils.luau"
+            }
+          },
+          "ShopService": {
+            "$className": "Folder",
+            "ShopServiceClient": {
+              "$path": "src/services/ShopService/Client.luau"
+            }
+          },
+          "TpService": {
+            "$className": "Folder",
+            "TpServiceClient": {
+              "$path": "src/services/tpService/Client.luau"
+            }
+          }
+        },
+        "Classes": {
+          "$className": "Folder"
+        },
+        "Modules": {
+          "$className": "Folder"
+        },
+        "Loader": {
+          "$className": "Folder",
+          "ModuleLoader": {
+            "$path": "src/Loader/ModuleLoader"
+          }
+        }
+      },
+      "Packages": {
+        "$path": "Packages"
+      },
+      "UI": {
+        "$path": "src/ui"
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "src/startup/Server.server.luau"
+      },
+      "Services": {
+        "$className": "Folder",
+        "ExampleService": {
+          "$className": "Folder",
+          "ExampleServiceServer": {
+            "$path": "src/services/ExampleService/Server.luau"
+          }
+        }
+      },
+      "Classes": {
+        "$className": "Folder"
+      },
+      "Modules": {
+        "$className": "Folder"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/startup/Client.client.luau"
+        }
+      }
+    }
+  }
+}
