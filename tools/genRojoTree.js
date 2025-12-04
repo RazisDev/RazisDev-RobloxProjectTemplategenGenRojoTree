@@ -25,12 +25,15 @@ function getVirtualPath(filepath) {
   const filename = path.basename(filepath, ".luau");
   const isServer = filename.toLowerCase().includes("server");
 
-  const folderName = parts.length > 1 ? toPascalCase(parts[parts.length - 2]) : "";
+  const folderName =
+    parts.length > 1 ? toPascalCase(parts[parts.length - 2]) : "";
   let name;
 
   if (filename === "init") {
     name = folderName;
-  } else if (["server", "client", "utils", "types"].includes(filename.toLowerCase())) {
+  } else if (
+    ["server", "client", "utils", "types"].includes(filename.toLowerCase())
+  ) {
     name = folderName + toPascalCase(filename);
   } else {
     name = filename;
@@ -41,9 +44,10 @@ function getVirtualPath(filepath) {
     target: isServer ? "ServerScriptService" : "ReplicatedStorage",
     folder: parts.slice(0, -1).map(toPascalCase),
     name,
-    file: filename === "init"
-    ? toPosix(path.join("src", ...parts.slice(0, -1)))
-    : toPosix(path.join("src", ...parts)),
+    file:
+      filename === "init"
+        ? toPosix(path.join("src", ...parts.slice(0, -1)))
+        : toPosix(path.join("src", ...parts)),
   };
 }
 
@@ -55,27 +59,27 @@ const tree = {
     ReplicatedStorage: {
       Shared: {
         $className: "Folder",
-        Services: { $className: "Folder", },
-        Classes: {  $className: "Folder", },
-        Modules: { $className: "Folder", }
+        Services: { $className: "Folder" },
+        Classes: { $className: "Folder" },
+        Modules: { $className: "Folder" },
       },
-      Packages: { $path: "Packages", },
-      UI: { $path: "src/ui", },
+      Packages: { $path: "Packages" },
+      UI: { $path: "src/ui" },
     },
 
     ServerScriptService: {
-      Server: { $path: "src/startup/Server.server.luau", },
-      Services: { $className: "Folder", },
-      Classes: { $className: "Folder", },
-      Modules: { $className: "Folder", },
+      Server: { $path: "src/startup/Server.server.luau" },
+      Services: { $className: "Folder" },
+      Classes: { $className: "Folder" },
+      Modules: { $className: "Folder" },
     },
 
     StarterPlayer: {
       StarterPlayerScripts: {
-        Client: { $path: "src/startup/Client.client.luau", }
+        Client: { $path: "src/startup/Client.client.luau" },
       },
     },
-  }
+  },
 };
 
 const sharedRoot = tree.tree.ReplicatedStorage.Shared;
